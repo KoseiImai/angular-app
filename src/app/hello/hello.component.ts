@@ -11,10 +11,16 @@ export class HelloComponent implements OnInit {
   message: string;
   price: number;
   now: Date;
+  styleClass: string;
 
   constructor() { 
     setInterval(
       () => { this.now = new Date();}, 1000
+    );
+    setInterval( 
+      () => { this.styleClass = this.styleClass == 'red' ? '' : 'red';
+              console.log(this.styleClass);
+            }, 1000
     );
   }
 
@@ -22,6 +28,7 @@ export class HelloComponent implements OnInit {
     this.title = 'Hello app';
     this.message = 'This is My First Component!!';
     this.price = 123450;
+    this.styleClass = 'red';
   }
 
   today () {
